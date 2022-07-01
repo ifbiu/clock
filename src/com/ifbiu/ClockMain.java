@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.UnsupportedEncodingException;
 
 public class ClockMain extends JFrame implements ActionListener {
 
@@ -148,11 +147,11 @@ public class ClockMain extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "教务系统升级中...请稍后再试！", "提示消息", JOptionPane.WARNING_MESSAGE);
                     this.clear();
                 }else{
-                    try {
-                        httpRequestData1 = new String(httpRequestData1.getBytes("GBK"), "utf-8");
-                    } catch (UnsupportedEncodingException unsupportedEncodingException) {
-                        unsupportedEncodingException.printStackTrace();
-                    }
+//                    try {
+//                        httpRequestData1 = new String(httpRequestData1.getBytes("GBK"), "utf-8");
+//                    } catch (UnsupportedEncodingException unsupportedEncodingException) {
+//                        unsupportedEncodingException.printStackTrace();
+//                    }
                     Gson g1 = new Gson();
                     UserEntity userEntity = g1.fromJson(httpRequestData1, UserEntity.class);
                     this.stulogin(userEntity.getStudentName(),userEntity.getStudentNum(),loginEntity.getToken());

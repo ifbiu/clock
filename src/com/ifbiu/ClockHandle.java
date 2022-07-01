@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -151,11 +150,11 @@ public class ClockHandle extends JFrame implements ActionListener
 		public DayInfoEntity[] init(String token){
 			String time = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 			String httpRequestData = RequestMethod.restCallerGet("https://zyxsgl.imau.edu.cn/api/student/healthSign/getByDate/"+time, "", token);
-			try {
-				httpRequestData = new String(httpRequestData.getBytes("GBK"), "utf-8");
-			} catch (UnsupportedEncodingException unsupportedEncodingException) {
-				unsupportedEncodingException.printStackTrace();
-			}
+//			try {
+//				httpRequestData = new String(httpRequestData.getBytes("GBK"), "utf-8");
+//			} catch (UnsupportedEncodingException unsupportedEncodingException) {
+//				unsupportedEncodingException.printStackTrace();
+//			}
 			Gson g1 = new Gson();
 			return g1.fromJson(httpRequestData, DayInfoEntity[].class);
 		}
